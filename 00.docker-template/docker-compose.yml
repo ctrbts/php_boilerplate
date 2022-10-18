@@ -27,7 +27,7 @@ services:
         env_file:
             - ./.env
         volumes:
-        - "./mysql/:/var/lib/mysql"
+            - "./mysql/:/var/lib/mysql"
         networks:
             - app-network
     phpmyadmin:
@@ -36,12 +36,13 @@ services:
         environment:
             PMA_HOST: db
             PMA_PORT: 3306
-            PMA_ARBITRARY: 1    
+            PMA_ARBITRARY: 1
         restart: always
         ports:
             - 8080:80
         networks:
             - app-network
+
     # Nginx service
     nginx:
         image: nginx:alpine
